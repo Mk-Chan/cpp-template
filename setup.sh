@@ -7,7 +7,6 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 mkdir -p "${DIR}/tools/binutils"
 mkdir -p "${DIR}/tools/gcc"
 mkdir -p "${DIR}/tools/cmake"
-mkdir -p "${DIR}/tools/vcpkg"
 
 echo "Initializing and updating submodules..."
 git submodule update --init
@@ -104,6 +103,7 @@ export PATH="${DIR}/tools/cmake/bin/:${PATH}"
 
 if [ ! -f "${DIR}/tools/vcpkg/vcpkg" ]; then
     echo "Bootstrapping vcpkg..."
+    git submodule add -f https://github.com/microsoft/vcpkg tools/vcpkg
     "${DIR}/tools/vcpkg/bootstrap-vcpkg.sh"
     echo "Built vcpkg!"
 else
