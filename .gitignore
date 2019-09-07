@@ -1,5 +1,8 @@
 # CMake
 cmake-build-*/
+build/
+
+# Tools
 tools/
 
 # IDEs
