@@ -64,7 +64,6 @@ add_executable(
     app/main.cpp
 )
 target_link_libraries(app PRIVATE spdlog::spdlog)
-target_include_directories(app PRIVATE include)
 
 # app_test
 add_executable(
