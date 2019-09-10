@@ -18,28 +18,15 @@ include_directories(.)
 ###
 # Global Flags
 ###
-if (MSVC)
-    add_compile_options(/W3 /Ox)
-else ()
-    add_compile_options(-Wall -Wextra -Wpedantic -O3)
-endif ()
+add_compile_options(-Wall -Wextra -Wpedantic)
 ###
 
 ###
 # Flags
 ###
 set(CMAKE_CXX_STANDARD 17)
-if (MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG "/DEBUG /Oy-")
-else ()
-    set(CMAKE_CXX_FLAGS_DEBUG "-g -fno-omit-frame-pointer")
-endif ()
-
-if (MSVC)
-    set(CMAKE_CXX_FLAGS_RELEASE "/DEBUG:NONE")
-else ()
-    set(CMAKE_CXX_FLAGS_DEBUG "-DNDEBUG")
-endif ()
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fno-omit-frame-pointer")
+set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -O3")
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
