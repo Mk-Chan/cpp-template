@@ -19,16 +19,16 @@ CMAKE_BUILD_DIR=build/${BUILD_TYPE_LOWERCASE}
 mkdir -p "${CMAKE_BUILD_DIR}"
 cd "${CMAKE_BUILD_DIR}"
 
-if [ -f "${DIR}/tools/cmake/bin/cmake" ]; then
+if [ -d "${DIR}/tools/cmake" ] && [ -f "${DIR}/tools/cmake/bin/cmake" ]; then
     export PATH="${DIR}/tools/cmake/bin/:${PATH}"
     echo "Using tools/cmake/bin/cmake..."
 fi
-if [ -f "${DIR}/tools/binutils/bin/ld" ]; then
+if [ -d "${DIR}/tools/binutils" ] && [ -f "${DIR}/tools/binutils/bin/ld" ]; then
     export LD="${DIR}/tools/binutils/bin/ld"
     export PATH="${DIR}/tools/binutils/bin/:${PATH}"
     echo "Using tools/binutils/bin/ld..."
 fi
-if [ -f "${DIR}/tools/gcc/bin/gcc" ]; then
+if [ -d "${DIR}/tools/gcc" ] && [ -f "${DIR}/tools/gcc/bin/gcc" ]; then
     export CC="${DIR}/tools/gcc/bin/gcc"
     echo "Using tools/gcc/bin/gcc..."
     export CXX="${DIR}/tools/gcc/bin/g++"
