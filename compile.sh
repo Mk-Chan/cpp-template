@@ -8,7 +8,7 @@ echo "Installing library dependencies..."
 packages="$(tr '\n' ' ' <<< "$(cat "${DIR}/vcpkg-packages.txt")")"
 "${DIR}/tools/vcpkg/vcpkg" install ${packages}
 
-TARGET=${1}
+TARGET=${1:-all}
 BUILD_TYPE=${2:-Debug}
 BUILD_TYPE_LOWERCASE="$(tr '[:upper:]' '[:lower:]' <<< "${BUILD_TYPE}")"
 CMAKE_BUILD_TYPE="$(tr '[:lower:]' '[:upper:]' <<< "${BUILD_TYPE_LOWERCASE:0:1}")${BUILD_TYPE_LOWERCASE:1}"
@@ -42,6 +42,6 @@ cmake -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}" \
     ../..
 
 echo "Building..."
-make ${TARGET} -j${BUILD_THREADS}
+cmake --build . --config ${CMAKE_BUILD_TYPE} --target ${TARGET} -- -j ${BUILD_THREADS}
 
 echo "Done!"
