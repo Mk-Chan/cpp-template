@@ -44,7 +44,7 @@ fi
 export PATH="${DIR}/tools/binutils/bin/:${PATH}"
 export LD="${DIR}/tools/binutils/bin/ld"
 
-GCC_VERSION=9.2.0
+GCC_VERSION=9.3.0
 GCC_VERSION_FULL=gcc-${GCC_VERSION}
 
 if [ ! -f "${DIR}/tools/gcc/bin/g++" ]; then
