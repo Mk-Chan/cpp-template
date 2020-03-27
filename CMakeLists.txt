@@ -48,15 +48,15 @@ set_tests_properties(app_test_run PROPERTIES DEPENDS app_test_build)
 # app
 add_executable(
     app
-    app/main.cpp
+    src/main/app/main.cpp
 )
 target_link_libraries(app PRIVATE spdlog::spdlog)
 
 # app_test
 add_executable(
     app_test
-    test/test.cpp
-    test/app/example.cpp
+    src/test/test.cpp
+    src/test/app/example.cpp
 )
 target_link_libraries(app_test PRIVATE Catch2::Catch2)
 ###
