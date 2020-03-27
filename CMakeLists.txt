@@ -12,7 +12,7 @@ find_package(Catch2 CONFIG REQUIRED)
 ###
 # Base directory relative includes for everyone
 ###
-include_directories(.)
+include_directories(src/main)
 ###
 
 ###
