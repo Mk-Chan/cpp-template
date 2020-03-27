@@ -10,7 +10,7 @@ git submodule update --init
 if [ ! -f "${DIR}/tools/vcpkg/vcpkg" ]; then
     echo "Bootstrapping vcpkg..."
     git submodule add -f https://github.com/microsoft/vcpkg tools/vcpkg
-    "${DIR}/tools/vcpkg/bootstrap-vcpkg.sh"
+    "${DIR}/tools/vcpkg/bootstrap-vcpkg.sh" -disableMetrics
     echo "Built vcpkg!"
 else
     echo "Found vcpkg!"
